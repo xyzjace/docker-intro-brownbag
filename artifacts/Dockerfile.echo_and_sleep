@@ -1,0 +1,3 @@
+FROM alpine
+COPY echo_and_sleep.sh /echo_and_sleep.sh
+CMD ["/bin/sh", "/echo_and_sleep.sh"]
