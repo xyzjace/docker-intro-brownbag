@@ -1,13 +1,13 @@
 #!/bin/bash
-# set -e
+set -e
 
-# echo -e "\e[1m\e[34mWriting a file called 'my_file' to / in echo_and_sleep container\e[0m\n"
-# echo -e "\e[1m\e[34m$ docker exec echo_and_sleep touch /my_file\e[0m\n"
-# docker exec echo_and_sleep touch /my_file
+## This block is here to make this script work if run multiple times and can be ignored
+set +e
+docker stop echo_server > /dev/null 2>&1
+docker rm echo_server > /dev/null 2>&1
+set -e
+##
 
-# sleep 2
-
-# echo -e "\e[1m\e[34mSeeing if the file exists in echo_and_sleep container\e[0m\n"
-# echo -e "\e[1m\e[34m$ docker exec echo_and_sleep ls -la /my_file\e[0m\n"
-# docker exec echo_and_sleep ls -la /my_file
-
+echo -e "\e[1m\e[34mUse the \"-P\" flag on docker run to bind any exposed ports in the Dockerfile to a random ephemeral port on the host\e[0m\n"
+echo -e "\e[1m\e[34m$ docker run -d --name echo_server -P xyzjace/echo_server\e[0m\n"
+docker run -d --name echo_server -P xyzjace/echo_server

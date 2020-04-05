@@ -1,0 +1,2 @@
+# A simple echo-server grabbed from https://hub.docker.com/r/jmalloc/echo-server/
+FROM jmalloc/echo-server:latest

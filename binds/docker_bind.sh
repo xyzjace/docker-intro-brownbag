@@ -1,13 +1,20 @@
 #!/bin/bash
-# set -e
+set -e
 
-# echo -e "\e[1m\e[34mWriting a file called 'my_file' to / in echo_and_sleep container\e[0m\n"
-# echo -e "\e[1m\e[34m$ docker exec echo_and_sleep touch /my_file\e[0m\n"
-# docker exec echo_and_sleep touch /my_file
+## This block is here to make this script work if run multiple times and can be ignored
+set +e
+docker stop echo_server > /dev/null 2>&1
+docker rm echo_server > /dev/null 2>&1
+set -e
+##
 
-# sleep 2
 
-# echo -e "\e[1m\e[34mSeeing if the file exists in echo_and_sleep container\e[0m\n"
-# echo -e "\e[1m\e[34m$ docker exec echo_and_sleep ls -la /my_file\e[0m\n"
-# docker exec echo_and_sleep ls -la /my_file
+echo -e "\e[1m\e[34mUse the \"-p host_port:container_port\" flag on docker run to bind on the host to the container\e[0m\n"
+echo -e "\e[1m\e[34m$ docker run -d --name echo_server -p 8080:8080 xyzjace/echo_server\e[0m\n"
+docker run -d --name echo_server -p 8080:8080 xyzjace/echo_server
 
+sleep 3
+
+echo -e "\e[1m\e[34mUse docker inspect to see what ports are bound\e[0m\n"
+echo -e "\e[1m\e[34m$ docker ps | grep echo_server\e[0m\n"
+docker ps | grep echo_server
