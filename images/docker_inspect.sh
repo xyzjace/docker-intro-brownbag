@@ -9,8 +9,8 @@ sleep 3
 jq_exists=$(command -v jq)
 if [[ $? == 0 ]];
 then
-  docker inspect xyzjace/hello_world | jq .
+  docker inspect xyzjace/hello_world | jq . | less
 else
-  docker inspect xyzjace/hello_world
+  docker inspect xyzjace/hello_world | less
 fi
 

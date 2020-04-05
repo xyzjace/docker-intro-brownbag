@@ -11,5 +11,5 @@ docker rm echo_and_sleep > /dev/null 2>&1
 docker run --rm --name echo_and_sleep -d xyzjace/echo_and_sleep:latest > /dev/null 2>&1
 set -e
 
-docker inspect echo_and_sleep
+docker inspect echo_and_sleep | less
 
