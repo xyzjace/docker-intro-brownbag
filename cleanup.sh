@@ -8,6 +8,7 @@ done
 
 echo -e "\e[31mCleaning up any xyzjace/ images\e[0m"
 xyzjace_images=$(docker images | grep xyzjace/ | cut -d " " -f1)
-for image in ${running_xyzjace_images}; do
+for image in ${xyzjace_images}; do
+  echo "Removing image ${image}"
   docker rmi -f ${image}
 done
