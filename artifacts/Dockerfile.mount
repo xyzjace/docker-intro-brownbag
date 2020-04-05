@@ -1,0 +1,4 @@
+FROM alpine
+COPY echo_and_sleep.sh /echo_and_sleep.sh
+RUN mkdir -p /var/mounted_directory_from_host
+CMD ["/bin/sh", "/echo_and_sleep.sh"]
