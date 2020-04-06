@@ -5,3 +5,8 @@ The general flow of things is:
 * Persistence
 * Volumes
 * Binds
+* Dockerfile intro
+* Dockerfile add file
+* Dockerfile run file
+* Dockerfile simple php server
+* Dockerfile configurable php server
