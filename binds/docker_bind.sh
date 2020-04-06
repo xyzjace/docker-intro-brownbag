@@ -9,12 +9,12 @@ set -e
 ##
 
 
-echo -e "\e[1m\e[34mUse the \"-p host_port:container_port\" flag on docker run to bind on the host to the container\e[0m\n"
-echo -e "\e[1m\e[34m$ docker run -d --name echo_server -p 8080:8080 xyzjace/echo_server\e[0m\n"
+echo -e "\033[1m\033[34mUse the \"-p host_port:container_port\" flag on docker run to bind on the host to the container\033[0m\n"
+echo -e "\033[1m\033[34m$ docker run -d --name echo_server -p 8080:8080 xyzjace/echo_server\033[0m\n"
 docker run -d --name echo_server -p 8080:8080 xyzjace/echo_server
 
 sleep 3
 
-echo -e "\e[1m\e[34mUse docker inspect to see what ports are bound\e[0m\n"
-echo -e "\e[1m\e[34m$ docker ps | grep echo_server\e[0m\n"
+echo -e "\033[1m\033[34mUse docker inspect to see what ports are bound\033[0m\n"
+echo -e "\033[1m\033[34m$ docker ps | grep echo_server\033[0m\n"
 docker ps | grep echo_server
