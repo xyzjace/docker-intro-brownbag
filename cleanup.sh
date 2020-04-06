@@ -11,3 +11,10 @@ for image in ${xyzjace_images}; do
   echo "Removing image ${image}"
   docker rmi -f ${image}
 done
+
+echo -e "\033[31mCleaning up any dockerfile: images\033[0m"
+dockerfile_images=$(docker images | grep dockerfile | tr -s " " | cut -d " " -f1,2 | sed -e 's/ /\:/g')
+for image in ${dockerfile_images}; do
+  echo "Removing image ${image}"
+  docker rmi -f ${image}
+done
