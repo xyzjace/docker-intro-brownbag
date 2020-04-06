@@ -2,11 +2,11 @@
 FROM php:alpine
 
 # Create the /dev directory inside the image
-# /dev will then also exist in the container
+# /code/dev will then also exist in the container
 RUN mkdir -p /code/dev
 
 # Create the /prod directory inside the image
-# /prod will then also exist in the container
+# /code/prod will then also exist in the container
 RUN mkdir -p /code/prod
 
 # Expose 8080 as the port we run our web server on
