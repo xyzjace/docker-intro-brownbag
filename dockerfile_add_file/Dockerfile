@@ -8,5 +8,8 @@ RUN mkdir /code
 # Copy all files from the directory we're building in, in to /code
 COPY . /code
 
+# Look at the files in /code during the image build
+RUN ls /code
+
 # Run this command when the container starts
 CMD php -v
