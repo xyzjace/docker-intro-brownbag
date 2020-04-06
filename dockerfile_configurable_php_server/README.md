@@ -1,0 +1,4 @@
+## Run order
+* docker_build.sh (builds our container and creates /code/dev and /code/prod directories which we can mount in to. Exposes port 8080 which we can then use to bind on the host. Also uses ENTRYPOINT in the Dockerfile which is then 'appended to' by whatever command we pass to `docker run` when we run our container)
+* docker_run_dev.sh (runs the container in 'dev' mode by mounting the `dev` subdirectory. passes '-t /code/dev' at the very end of docker run, which is appended to the ENTRYPOINT command specified in the Dockerfile, to make the whole command "php -S 0.0.0.0:8080 -t /code/dev" as the running container's command. see that you can curl the container's "hello.php" and "phpinfo.php" on whatever randomly bound port it is listening on)
+* docker_run_pod.sh (similar to dev, runs the container in 'prod' mode by mounting the `prod` subdirectory in to the container and passing '-t /code/prod'. see that you cannot curl hello.php, but you can curl index.php)
